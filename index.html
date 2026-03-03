@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Painting Excellence - Brisbane's Premier Luxury Painting Services</title>
+    <meta name="description" content="Luxury painting services for Brisbane's finest homes. Heritage restoration, custom finishes, and artisan craftsmanship since 2016.">
+    <style>
+        :root {
+            --navy: #0f172a;
+            --gold: #f59e0b;
+            --light-gold: #fbbf24;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --dark-glass: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--navy);
+            overflow-x: hidden;
+            position: relative;
+            color: var(--white);
+        }
+
+        /* Luxury Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; top: 60%; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; top: 40%; left: 70%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; top: 80%; left: 80%; animation-delay: 6s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; top: 30%; left: 90%; animation-delay: 1s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; top: 70%; left: 15%; animation-delay: 3s; }
+        .particle:nth-child(7) { width: 5px; height: 5px; top: 15%; left: 85%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateZ(0deg); opacity: 0.6; }
+            50% { transform: translateY(-30px) rotateZ(180deg); opacity: 1; }
+        }
+
+        /* Glassmorphism Navigation */
+        .nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            background: var(--glass);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            max-width: 800px;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--white), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--gold), var(--light-gold));
+            color: var(--navy);
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--navy), rgba(15, 23, 42, 0.8));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--light-gold));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: var(--dark-glass);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .about-features li {
+            padding: 0.8rem 0;
+            color: var(--white);
+            font-weight: 500;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .about-features li::before {
+            content: "✦";
+            color: var(--gold);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .about-image {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            height: 500px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--navy);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--gold);
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-details {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--navy), rgba(15, 23, 42, 0.9));
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .contact-details {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .contact-details li {
+            padding: 0.8rem 0;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .contact-form {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+        }
+
+        .contact-form h3 {
+            color: var(--gold);
+            margin-bottom: 2rem;
+            font-size: 1.6rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--gold), var(--light-gold));
+            color: var(--navy);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-glass);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                padding: 2.5rem 2rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">Artisan Excellence</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">Heritage</a></li>
+                <li><a href="#testimonials">Portfolio</a></li>
+                <li><a href="#contact">Consultation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Artisan Painting Excellence for Brisbane's Finest Homes</h1>
+            <p class="hero-subtitle">Where meticulous craftsmanship meets luxury living. Serving Brisbane's most discerning homeowners and prestigious commercial properties since 2016.</p>
+            <a href="#contact" class="hero-cta">Schedule Private Consultation</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Premium Services Portfolio</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Interior Design Consultation</h3>
+                    <p>Collaborative color consultation with leading Brisbane interior designers. Custom paint finishes, specialty techniques, and heritage-appropriate restoration work. From Federation homes to contemporary luxury residences.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Luxury Finish Specialization</h3>
+                    <p>Venetian plaster, limewash applications, metallic accents, and bespoke color matching. Techniques mastered through European training programs and decades of refinement. Each finish tells your property's unique story.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Heritage Restoration</h3>
+                    <p>Authentic restoration of Brisbane's heritage properties using period-appropriate techniques and materials. Expertise in lead-safe practices, original paint analysis, and conservation-grade products.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Prestigious Commercial</h3>
+                    <p>Luxury hotels, high-end retail spaces, corporate headquarters, and boutique establishments. After-hours scheduling, minimal disruption protocols, and white-glove service standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Established Excellence Since 2016</h2>
+                    <p>We're not just painters—we're artisans dedicated to perfection. Every brush stroke reflects our commitment to transforming Brisbane's most beautiful properties into masterpieces.</p>
+                    <p>From the historic charm of Paddington terraces to the contemporary elegance of New Farm apartments, we understand that exceptional properties demand exceptional care.</p>
+                    <ul class="about-features">
+                        <li><strong>Artisan Heritage:</strong> Traditional European techniques combined with cutting-edge materials</li>
+                        <li><strong>Exclusive Clientele:</strong> Serving luxury homeowners and prestige commercial clients</li>
+                        <li><strong>Uncompromising Standards:</strong> Every surface prepared to museum-quality specifications</li>
+                        <li><strong>Discretion Assured:</strong> Complete confidentiality and respect for clients' privacy</li>
+                        <li><strong>Lifetime Excellence:</strong> Our reputation built on relationships spanning decades</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    Luxury Portfolio Showcase
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Distinguished Client Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">Transforming our 1920s Clayfield home required someone who understood both heritage authenticity and modern luxury. The attention to detail was extraordinary—every cornice line, every window frame treated with museum-quality precision.</p>
+                    <p class="testimonial-author">Elizabeth & James Morrison</p>
+                    <p class="testimonial-details">Historic Clayfield Estate</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">As developers of Brisbane's premier luxury apartments, we demand perfection. Their team delivered flawless finishes on our $40M Kangaroo Point project—on schedule, on budget, with zero defects.</p>
+                    <p class="testimonial-author">Richard Chen</p>
+                    <p class="testimonial-details">Executive Director, Prestige Developments</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">After disappointing experiences with other contractors, discovering true craftsmanship was refreshing. Our Bulimba riverfront home's Venetian plaster walls are genuine works of art.</p>
+                    <p class="testimonial-author">Dr. Sarah Whitfield</p>
+                    <p class="testimonial-details">Luxury Bulimba Residence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Private Consultation</h2>
+                    <p>Ready to transform your distinguished property? We provide comprehensive investment consultations for luxury painting projects across Brisbane's finest addresses.</p>
+                    <p>Consultation appointments are by invitation only, ensuring dedicated time to understand your vision and property's unique requirements.</p>
+                    <ul class="contact-details">
+                        <li><strong>Private Line:</strong> (07) 3000 0000</li>
+                        <li><strong>Consultation Email:</strong> excellence@artisanbrisbane.com.au</li>
+                        <li><strong>Select Addresses:</strong> Brisbane Metro, Heritage Districts</li>
+                        <li><strong>Consultation Hours:</strong> Mon-Fri 9AM-5PM, Sat by Appointment</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <h3>Request Private Consultation</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Contact Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Property Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project">Project Vision</label>
+                            <textarea id="project" name="project" placeholder="Please describe your luxury painting project - heritage restoration, custom finishes, commercial prestige work..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Request Consultation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Artisan Painting Excellence. Master Craftsmen. Luxury Results. ABN: 12 345 678 901</p>
+        </div>
+    </footer>
+</body>
+</html>
